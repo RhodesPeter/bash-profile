@@ -1,8 +1,26 @@
 export PATH=/usr/local/bin:$PATH
-export EDITOR='subl -w'
+export EDITOR='code -w'
+
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+# export PROJECT_HOME=$HOME/Devel
+
+# source /Library/Frameworks/Python.framework/Versions/3.10/bin/virtualenvwrapper.sh
 
 # Enable tab completion
 source ~/git-completion.bash
+
+# Shows last 10 branches you have worked on
+alias last10='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
+
+# Shows last x branches you have worked on
+# Example usage 'last 5' would show you the last 5 branches you worked on
+last () {
+  git for-each-ref --count=$1 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+}
+
+# Shortcut for git status
+alias s='git status'
 
 # colors!
 green="\[\033[0;32m\]"
@@ -18,3 +36,17 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\W' adds the name of the current directory
 export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# Setting PATH for Python 3.9
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+export PATH
